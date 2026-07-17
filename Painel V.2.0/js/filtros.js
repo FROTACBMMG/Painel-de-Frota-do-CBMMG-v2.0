@@ -147,7 +147,7 @@ function filtrarRegistro(registro) {
 
     if (
         prefixo &&
-        !registro.prefixo.toUpperCase().includes(prefixo)
+        !(registro.prefixo || "").toUpperCase().includes(prefixo)
     )
         return false;
 
@@ -189,6 +189,24 @@ function limparFiltros() {
 
 function atualizarFiltros() {
 
-    inicializarFiltros();
+    preencherSelect(
+        "filtroComando",
+        valoresUnicos(dadosOriginais, "comando")
+    );
+
+    preencherSelect(
+        "filtroUnidade",
+        valoresUnicos(dadosOriginais, "unidadePrincipal")
+    );
+
+    preencherSelect(
+        "filtroSubclasse",
+        valoresUnicos(dadosOriginais, "subclasse")
+    );
+
+    preencherSelect(
+        "filtroSituacao",
+        valoresUnicos(dadosOriginais, "situacao")
+    );
 
 }

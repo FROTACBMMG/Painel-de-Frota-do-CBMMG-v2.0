@@ -22,10 +22,6 @@ function atualizarIndicadores(dados) {
 
     atualizarDescarga(dados);
 
-    atualizarDisponibilidade(dados);
-
-    atualizarIdadeMedia(dados);
-
     atualizarSubclasse(dados);
 
     atualizarCombustivel(dados);
@@ -115,82 +111,6 @@ function atualizarDescarga(dados) {
 }
 
 //==================================================
-// Disponibilidade Média
-//==================================================
-
-function atualizarDisponibilidade(dados) {
-
-    if (dados.length === 0) {
-
-        atualizarTexto(
-
-            "disponibilidade",
-
-            "---"
-
-        );
-
-        return;
-
-    }
-
-    const disponibilidade = media(
-
-        dados,
-
-        "indiceDisponibilidade"
-
-    );
-
-    atualizarTexto(
-
-        "disponibilidade",
-
-        disponibilidade.toFixed(2) + "%"
-
-    );
-
-}
-
-//==================================================
-// Idade Média
-//==================================================
-
-function atualizarIdadeMedia(dados) {
-
-    if (dados.length === 0) {
-
-        atualizarTexto(
-
-            "idadeMedia",
-
-            "---"
-
-        );
-
-        return;
-
-    }
-
-    const idade = media(
-
-        dados,
-
-        "idade"
-
-    );
-
-    atualizarTexto(
-
-        "idadeMedia",
-
-        idade.toFixed(1) + " anos"
-
-    );
-
-}
-
-//==================================================
 // Subclasse
 //==================================================
 
@@ -200,7 +120,7 @@ function atualizarSubclasse(dados) {
 
         atualizarTexto(
 
-            "subclasse",
+            "cardSubclasse",
 
             "---"
 
@@ -212,7 +132,7 @@ function atualizarSubclasse(dados) {
 
     atualizarTexto(
 
-        "subclasse",
+        "cardSubclasse",
 
         dados[0].subclasse
 
@@ -230,7 +150,7 @@ function atualizarCombustivel(dados) {
 
         atualizarTexto(
 
-            "combustivel",
+            "cardCombustivel",
 
             "---"
 
@@ -242,7 +162,7 @@ function atualizarCombustivel(dados) {
 
     atualizarTexto(
 
-        "combustivel",
+        "cardCombustivel",
 
         dados[0].combustivel
 

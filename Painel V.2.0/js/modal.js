@@ -88,27 +88,7 @@ function abrirModal(registro){
 
         )
 
-    );
-
-    atualizarTexto(
-
-        "modalDisponibilidade",
-
-        registro.indiceDisponibilidade.toFixed(2) + "%"
-
-    );
-
-    atualizarTexto(
-
-        "modalValorVenal",
-
-        moeda(
-
-            registro.valorVenal
-
-        )
-
-    );
+    ); 
 
     const modal = new bootstrap.Modal(
 

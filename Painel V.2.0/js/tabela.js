@@ -206,30 +206,31 @@ $("#tabelaFrota tbody").on(
 
     function(){
 
-        $(
+        $("#tabelaFrota tbody tr")
 
-            "#tabelaFrota tbody tr"
-
-        )
-
-        .removeClass(
-
-            "selected"
-
-        );
+            .removeClass("selected");
 
         $(this)
 
-        .addClass(
+            .addClass("selected");
 
-            "selected"
+        const registro =
 
-        );
+            tabelaFrota
+
+                .row(this)
+
+                .data();
+
+        if(registro){
+
+            abrirModal(registro);
+
+        }
 
     }
 
 );
-
 
 //==================================================
 // Atualiza após filtros

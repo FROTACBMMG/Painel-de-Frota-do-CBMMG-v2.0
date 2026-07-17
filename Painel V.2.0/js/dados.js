@@ -129,19 +129,13 @@ function criarMapaColunas(colunas) {
 
         //--------------------------------------------------
 
-        else if(nome.includes("UNIDADE PRINCIPAL"))
-
-    		MAPA.unidade = coluna;
-
-	else if(nome.includes("NOME UNID"))
-
-   		 MAPA.nomeUnidade = coluna;
-
-        //--------------------------------------------------
-
         else if (nome.includes("UNIDADE PRINCIPAL"))
 
-            MAPA_COLUNAS.unidadePrincipal = coluna;
+    		MAPA_COLUNAS.unidadePrincipal = coluna;
+
+		else if (nome.includes("NOME UNID"))
+
+   			 MAPA_COLUNAS.nomeUnidade = coluna;
 
         //--------------------------------------------------
 
@@ -267,19 +261,11 @@ function prepararRegistro(registro) {
 
             ),
 
-        unidade:
-
-            limparTexto(
-
-                registro[MAPA_COLUNAS.unidade]
-
-            ),
-
 	nomeUnidade:
 
    		limparTexto(
 
-       		 registro[MAPA.nomeUnidade]
+       		 registro[MAPA_COLUNAS.nomeUnidade]
 
    		 ),
 

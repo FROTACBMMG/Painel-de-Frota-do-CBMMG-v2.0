@@ -79,17 +79,21 @@ function classificarSituacao(situacao){
 
     );
 
-    if(texto==="DISPONIVEL")
+    if (texto.includes("DISPON"))
 
-        return SITUACAO.DISPONIVEL;
+    return SITUACAO.DISPONIVEL;
 
-    if(texto==="BAIXADA")
+    if (
 
-        return SITUACAO.MANUTENCAO;
+    texto.includes("BAIX")
 
-    if(texto==="ACIDENTADA")
+    ||
 
-        return SITUACAO.MANUTENCAO;
+    texto.includes("ACIDENT")
+
+)
+
+    return SITUACAO.MANUTENCAO;
 
     if(texto==="PROCESSO DE DESCARGA")
 

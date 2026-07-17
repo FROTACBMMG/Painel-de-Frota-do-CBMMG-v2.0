@@ -34,7 +34,7 @@ function limparTexto(texto){
     return texto
         .toString()
         .trim()
-        .replace(/\\s+/g," ");
+        .replace(/\s+/g," ")
 
 }
 
@@ -47,7 +47,7 @@ function removerAcentos(texto){
 
     return limparTexto(texto)
         .normalize("NFD")
-        .replace(/[\\u0300-\\u036f]/g,"");
+        .replace(/[\u0300-\u036f]/g,"")
 
 }
 
@@ -73,9 +73,9 @@ function paraNumero(valor){
         return 0;
 
     valor = valor
-        .replace(/R\\$/g,"")
-        .replace(/\\s/g,"")
-        .replace(/\\./g,"")
+        .replace(/R\$/g,"")
+        .replace(/\s/g,"")
+        .replace(/\./g,"")
         .replace(",",".");
 
     const numero = Number(valor);
@@ -121,7 +121,12 @@ function idadeVeiculo(ano){
 
     const anoAtual = new Date().getFullYear();
 
-    return anoAtual - paraNumero(ano);
+    const anoFabricacao = paraNumero(ano);
+
+        if(anoFabricacao === 0)
+            return 0;
+
+        return anoAtual - anoFabricacao;
 
 }
 
@@ -254,11 +259,14 @@ function preencherSelect(id,lista){
 
         return;
 
-    const primeiraOpcao = select.options[0];
+    const primeiraOpcao = select.options.length > 0
+    ? select.options[0].cloneNode(true)
+    : null;
 
-    select.innerHTML = "";
+        select.innerHTML = "";
 
-    select.appendChild(primeiraOpcao);
+            if(primeiraOpcao)
+            select.appendChild(primeiraOpcao);
 
     lista.forEach(function(item){
 
@@ -292,6 +300,6 @@ function dataHoraAtual(){
 
 function log(mensagem){
 
-    console.log("[CBMMG]",mensagem);
+    console.log("[Painel CBMMG]",mensagem);
 
 }

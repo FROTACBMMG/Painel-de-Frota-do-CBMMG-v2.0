@@ -142,7 +142,7 @@ async function atualizarDados() {
 
         dadosFiltrados = [...dadosOriginais];
 
-        preencherFiltros();
+        atualizarFiltros();
 
         atualizarPainel();
 
